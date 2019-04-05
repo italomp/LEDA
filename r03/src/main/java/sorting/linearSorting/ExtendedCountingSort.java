@@ -26,7 +26,8 @@ public class ExtendedCountingSort extends AbstractSorting<Integer> {
 		}
 		int maior = descobreMaior(array);
 		int menor = descobreMenor(array);
-		Integer[] aux = new Integer[maior - menor + 1];
+		int tamanhoAux = Math.abs(maior - menor) + 1;
+		Integer[] aux = new Integer[tamanhoAux];
 		Integer[] saida = new Integer[array.length];
 		
 		for(int i= 0; i < aux.length; i++) {
@@ -75,6 +76,33 @@ public class ExtendedCountingSort extends AbstractSorting<Integer> {
 			return menor;
 		}
 		return null;
+	}
+	
+	public static void main(String[] args) {
+		Integer[] a1 = {6,5,4,7,9,8,2,1,3};
+		Integer[] a2 = {6,-5,4,-7,-9,8,2,1,3};
+		Integer[] a3 = {6,-5,4,-7,0,8,2,1,3};
+		
+		ExtendedCountingSort sort = new ExtendedCountingSort();
+		
+		sort.sort(a1, 0, 8);
+		sort.sort(a1, 0, 8);
+		sort.sort(a1, 0, 8);
+		
+		for(int i = 0; i < a1.length; i++) {
+			System.out.print(a1[i] + " ");
+		}
+		System.out.println();
+		
+		for(int i = 0; i < a2.length; i++) {
+			System.out.print(a2[i] + " ");
+		}
+		System.out.println();
+		
+		for(int i = 0; i < a3.length; i++) {
+			System.out.print(a3[i] + " ");
+		}
+		
 	}
 
 }
