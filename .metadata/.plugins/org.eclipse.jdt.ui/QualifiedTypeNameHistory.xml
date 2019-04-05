@@ -3,6 +3,9 @@
     <fullyQualifiedTypeName name="sorting.variationsOfSelectionsort.SimultaneousSelectionsort"/>
     <fullyQualifiedTypeName name="sorting.simpleSorting.BubbleSort"/>
     <fullyQualifiedTypeName name="sorting.simpleSorting.InsertionSort"/>
-    <fullyQualifiedTypeName name="util.Util"/>
     <fullyQualifiedTypeName name="sorting.simpleSorting.SelectionSort"/>
+    <fullyQualifiedTypeName name="sorting.divideAndConquer.MergeSort"/>
+    <fullyQualifiedTypeName name="util.Util"/>
+    <fullyQualifiedTypeName name="sorting.divideAndConquer.QuickSort"/>
+    <fullyQualifiedTypeName name="sorting.divideAndConquer.threeWayQuicksort.ThreeWayQuickSort"/>
 </qualifiedTypeNameHistroy>
