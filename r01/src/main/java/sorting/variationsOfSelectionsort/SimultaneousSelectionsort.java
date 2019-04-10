@@ -27,19 +27,28 @@ public class SimultaneousSelectionsort<T extends Comparable<T>> extends
 		else if(leftIndex > rightIndex) {
 			return;
 		}
-		for(int i = 0; i <= rightIndex / 2; i++) {
+		for(int i = leftIndex; i <= rightIndex / 2; i++) {
 			int menor = i;
 			int maior = rightIndex - i;
 			for(int j = i; j <= rightIndex - i; j++) {
 				if(array[j].compareTo(array[menor]) < 0) {
 					menor = j;
 				}
-				else if(array[j].compareTo(array[maior]) > 0) {
+				if(array[j].compareTo(array[maior]) > 0) {
 					maior = j;
 				}
 			}
-			Util.swap(array, i, menor);
-			Util.swap(array, rightIndex - i, maior);
+			//quando o array está ordenado do maior para o menor
+			// eu troco i com menor, depois DESTROCO como o seguinte swap
+			if(maior != i && menor != (rightIndex - i)) {
+				Util.swap(array, i, menor);              // <------ troco
+				Util.swap(array, maior, rightIndex - i); // <------ destroco
+			}
+			else {
+				Util.swap(array, i, menor);              // <------ troco
+			}
+			
 		}
 	}
 }
+
