@@ -17,7 +17,7 @@ public class OrderStatisticsSelectionImpl<T extends Comparable<T>> implements Or
 	 *   como o selectionsort mas sem modificar nenhuma posicao do array).
 	 * - Caso a estatistica de ordem nao exista no array, o algoritmo deve retornar null. 
 	 * - Considerar que k varia de 1 a N 
-	 * - Sugestao: o uso de recursao ajudara sua codificacao.
+	 * - Sugestao: o uso de recursao ajudara sua codificacao..
 	 */
 	@Override
 	public T getOrderStatistics(T[] array, int k) {	
