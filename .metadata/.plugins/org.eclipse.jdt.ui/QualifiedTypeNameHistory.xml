@@ -9,4 +9,6 @@
     <fullyQualifiedTypeName name="sorting.divideAndConquer.QuickSort"/>
     <fullyQualifiedTypeName name="sorting.divideAndConquer.threeWayQuicksort.ThreeWayQuickSort"/>
     <fullyQualifiedTypeName name="sorting.linearSorting.ExtendedCountingSort"/>
+    <fullyQualifiedTypeName name="adt.stack.StackOverflowException"/>
+    <fullyQualifiedTypeName name="adt.stack.StackUnderflowException"/>
 </qualifiedTypeNameHistroy>
