@@ -1,0 +1,12 @@
+package sorting.linearSorting;
+
+
+public class TernaryArraySortingImpl<T extends Comparable<T>> implements TernaryArraySorting<T>{
+	
+	public void sort(T[] ternaryArray) {		
+		//TODO Implementar este método !!!!
+		throw new UnsupportedOperationException("Not implemented yet!");
+		
+	}
+	
+}

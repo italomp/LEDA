@@ -1,0 +1,68 @@
+package sorting.linearSorting;
+
+
+public class TernaryArraySortingImpl<T extends Comparable<T>> implements TernaryArraySorting<T>{
+	
+	public void sort(T[] ternaryArray) {	
+		T elementoUm, elementoDois, elementoTres;
+		int primeiro, segundo, terceiro;
+		primeiro = 0;
+		segundo = 0;
+		terceiro = 0;
+		elementoUm = ternaryArray[0];
+		elementoDois = ternaryArray[1];
+		elementoTres = ternaryArray[2];
+		
+		//descobrir o segundo elemento
+		for(int i = 1; i < ternaryArray.length; i++) {
+			if(ternaryArray[i].compareTo(elementoUm) != 0) {
+				elementoDois = ternaryArray[i];
+				break;
+				
+			}
+		}
+		
+		//descobri o terceiro elemento
+		for(int i = 1; i < ternaryArray.length; i++) {
+			if(ternaryArray[i].compareTo(elementoUm) != 0 && ternaryArray[i].compareTo(elementoDois) != 0) {
+				elementoTres = ternaryArray[i];
+				break;
+			}
+		}
+		
+		//contar quantas vezes cada elemento aparece
+		for(int i = 0; i <ternaryArray.length; i++) {
+			if(ternaryArray[i].compareTo(elementoUm) == 0) {
+				primeiro++;
+			}
+			else if(ternaryArray[i].compareTo(elementoDois) == 0){
+				segundo++;
+			}
+			else {
+				terceiro++;
+			}
+		}
+		
+		//ordenar comparando
+		for(int i = 0; i < ternaryArray.length; i++) {
+			if(primeiro > 0 && elementoUm.compareTo(elementoDois) < 0 
+					&& elementoUm.compareTo(elementoDois) < 0) {
+				ternaryArray[i] = elementoUm;
+				primeiro--;
+			}
+			
+			else if(segundo > 0 && elementoDois.compareTo(elementoUm) < 0
+						&& elementoDois.compareTo(elementoUm) < 0) {
+				ternaryArray[i] = elementoDois;
+				segundo--;
+			}
+			
+			else{
+				ternaryArray[i] = elementoTres;
+				terceiro--;
+			}
+		}
+		
+	}
+	
+}

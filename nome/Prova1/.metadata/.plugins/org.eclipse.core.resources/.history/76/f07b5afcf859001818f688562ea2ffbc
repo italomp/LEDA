@@ -1,0 +1,44 @@
+package sorting.linearSorting;
+
+
+public class TernaryArraySortingImpl<T extends Comparable<T>> implements TernaryArraySorting<T>{
+	
+	public void sort(T[] ternaryArray) {	
+		T elementoUm, elementoDois, elementoTres;
+		int menor, meio, maior;
+		elementoUm = ternaryArray[0];
+		elementoDois = ternaryArray[1];
+		elementoTres = ternaryArray[2];
+		/**
+		 * descobrir quais sao os tres elementos (dois for 'um pega o segundo e outro o terceiro. o primeiro será
+		 * o primeiro elemento da lista')
+		 * criar 3 contadores
+		 * varrer o array e contar quantas vezes cada elemento aparece
+		 * comparar p ver quem é o menor o maior e o do meio
+		 * faço um for p preencher o menor
+		 * depois outro for p preencher os do meio
+		 * depois outro for p preencher os últimos
+		 * 
+		 */
+		elementoUm = ternaryArray[0];
+		//descobrir o segundo elemento
+		for(int i = 1; i < ternaryArray.length; i++) {
+			if(ternaryArray[i].compareTo(elementoUm) != 0) {
+				elementoDois = ternaryArray[i];
+				break;
+				
+			}
+		}
+		
+		//descobri o terceiro elemento
+		for(int i = 1; i < ternaryArray.length; i++) {
+			if(ternaryArray[i].compareTo(elementoUm) != 0 && ternaryArray[i].compareTo(elementoDois) != 0) {
+				elementoTres = ternaryArray[i];
+			}
+		}
+		
+		
+		
+	}
+	
+}

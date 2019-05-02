@@ -1,0 +1,16 @@
+package meusTestes;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import adt.stack.parenthesis.LongestValidParenthesisSubstringImpl;
+
+public class meusTestes {
+	LongestValidParenthesisSubstringImpl a = new LongestValidParenthesisSubstringImpl();
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

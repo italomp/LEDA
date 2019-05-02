@@ -1,0 +1,95 @@
+package adt.stack.parenthesis;
+
+import java.util.Stack;
+
+/**
+ * @author Cláudio Campelo
+ * Ver comentários na interface LongestValidParenthesisSubstring.
+ *
+ */
+public class LongestValidParenthesisSubstringImpl implements LongestValidParenthesisSubstring {
+
+    /* (non-Javadoc)
+     * @see adt.stack.parenthesis.LongestValidParenthesisSubstring#findLongest(java.lang.String)
+     */
+    public String findLongest(String parenthesis) {
+    	String[] entrada = new String[parenthesis.length()];
+    	Stack<String> stack = new Stack<>();
+    	entrada = parenthesis.split("");
+    	int validador = 0;
+
+    	//percorro uma vez do comeco ao fim e incrementando uma variavel ao ver ( e decrementando
+    	//ao ver )
+    	// se passar ( num positivo
+    	// se passar ) num negativo
+    	// percorrer o tamanho da lista - módulo desse numero que passar (validador)
+    	
+    	for(int i = 0; i < parenthesis.length(); i++) {
+    		stack.push(entrada[i]);
+    		if(entrada[i].equals("(")) {
+    			validador++;
+    		}
+    		else if(entrada[i].equals(")")) {
+    			validador--;
+    		}
+    	}
+    	
+    	
+    	
+    }
+    /**
+     * nao sei se pode usar biblioteca Math
+     * @return modulo de um inteiro
+     */
+    public int calculaModulo(int x) {
+    	int result = x;
+    	if(x < 0) {
+    		result = result * (-1);
+    	}
+    	return result;	
+    }
+    
+    /*
+     * Este é um método utilitário que calcula o "espelho" de uma String.
+     * Ou seja, é uma espécie de flip horizontal. Veja os exemplos abaixo
+     * para entender como o método deve ser comportar.
+     * 
+     * A implementação deste método não é obrigatória, porém, é fortemente
+     * recomendada, visto que pode ser muito útil para a implementação
+     * do findLongest.
+     * 
+     * Neste método, implemente uma solução baseada em PILHA. 
+     * 
+     * Exemplo 1:
+     * input		   = ((()
+     * expected_output = ()))
+     * 
+     * Exemplo 2:
+     * input		   = ()()
+     * expected_output = ()()
+     * 
+     * Exemplo 2:
+     * input		   = (((((
+     * expected_output = )))))
+     */
+    private String parenthesisMirror(String str){
+        
+    	Stack<String> stack = new Stack<String>();
+    	String mirrorStr = "";
+    	String[] stringInArray = new String[str.length()];
+    	stringInArray = str.split("");
+    	
+    	for(int i = str.length() - 1; i >= 0; i--) {
+    		stack.push(stringInArray[i]);
+    	}
+    	
+    	for(int i = 0; i < str.length(); i++) {
+    		mirrorStr += stack.pop();
+    	}
+    	
+		return mirrorStr;
+    	
+
+    }
+
+}

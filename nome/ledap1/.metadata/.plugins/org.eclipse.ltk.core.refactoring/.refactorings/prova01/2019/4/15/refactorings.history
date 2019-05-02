@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;frequencia&apos; in &apos;problems.OccurrencesCounterImpl.countAux(...)&apos; to &apos;contadorFrequencia&apos;&#x0A;- Original project: &apos;prova01&apos;&#x0A;- Original element: &apos;problems.OccurrencesCounterImpl.countAux(T[], T, int, int, int).frequencia&apos;&#x0A;- Renamed element: &apos;frequencia&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;frequencia&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src\/main\/java&lt;problems{OccurrencesCounterImpl.java[OccurrencesCounterImpl~countAux~\[QT;~QT;~I~I~I@frequencia!1079!1097!1083!1092!I!0!false" name="contadorFrequencia" references="true" stamp="1555003639607" version="1.0"/>
+</session>

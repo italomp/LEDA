@@ -1,0 +1,25 @@
+package meusTestes;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import adt.stack.parenthesis.LongestValidParenthesisSubstringImpl;
+
+public class meusTestes {
+	LongestValidParenthesisSubstringImpl longest = new LongestValidParenthesisSubstringImpl();
+	@Test
+	public void test() {
+		String a = "()";
+		String b = "()()";
+		String c = "(())";
+		String d = "";
+		String e = null;
+//		assertTrue("retorno de a ", longest.findLongest(a).equals("()"));
+//		assertTrue("retorno de b ", longest.findLongest(a).equals("()()"));
+		assertTrue("retorno de c ", longest.findLongest(a).equals("(())"));
+		assertTrue("retorno de d ", longest.findLongest(a).equals(null));
+		assertTrue("retorno de e ", longest.findLongest(a).equals(null));
+	}
+
+}

@@ -1,0 +1,37 @@
+package sorting.linearSorting;
+
+
+public class TernaryArraySortingImpl<T extends Comparable<T>> implements TernaryArraySorting<T>{
+	
+	public void sort(T[] ternaryArray) {	
+		T elementoUm, elementoDois, elementoTres;
+		int primeiro, segundo, terceiro;
+		primeiro = 0;
+		segundo = 0;
+		terceiro = 0;
+		elementoUm = ternaryArray[0];
+		elementoDois = ternaryArray[1];
+		elementoTres = ternaryArray[2];
+		
+		//descobrir o segundo elemento
+		for(int i = 1; i < ternaryArray.length; i++) {
+			if(ternaryArray[i].compareTo(elementoUm) != 0) {
+				elementoDois = ternaryArray[i];
+				break;
+				
+			}
+		}
+		
+		//descobri o terceiro elemento
+		for(int i = 1; i < ternaryArray.length; i++) {
+			if(ternaryArray[i].compareTo(elementoUm) != 0 && ternaryArray[i].compareTo(elementoDois) != 0) {
+				elementoTres = ternaryArray[i];
+				break;
+			}
+		}
+		
+		
+		
+	}
+	
+}

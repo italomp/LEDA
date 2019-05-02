@@ -1,0 +1,23 @@
+package main;
+
+import adt.stack.parenthesis.LongestValidParenthesisSubstringImpl;
+
+public class main {
+
+	public static void main(String[] args) {
+		LongestValidParenthesisSubstringImpl longest = new LongestValidParenthesisSubstringImpl();
+		String a = "()";
+		String b = "()()";
+		String c = "(())";
+		String d = "";
+		String e = null;
+		
+		System.out.println(longest.findLongest(a));
+		System.out.println(longest.findLongest(b));
+		System.out.println(longest.findLongest(c));
+		System.out.println(longest.findLongest(d));
+		System.out.println(longest.findLongest(e));
+
+	}
+
+}

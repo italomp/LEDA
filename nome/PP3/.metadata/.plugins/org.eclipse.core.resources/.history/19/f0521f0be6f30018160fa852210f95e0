@@ -1,0 +1,49 @@
+package adt.heap.extended;
+
+import java.util.PriorityQueue;
+
+/**
+ * A classe HeapSumImpl herda de PriorityQueue, que funciona como uma min heap.
+ * 
+ * @author adalbertocajueiro
+ *
+ */
+public class HeapSumImpl extends PriorityQueue<Integer> implements HeapSum {
+
+   /**
+    * Os elementos pertencentes ao range são maiores que k1 e menores ou iguais ao k2.
+    * basta iterar a heap e verificar se os "valores da vez" estão nesse intervalo.
+    * Se sim, somo.
+    */
+   @Override
+   public Integer sumRangeOrderStatistics(Integer k1, Integer k2) {
+	   //o índice importa
+	   // não estou usando o índice. Estou comparando os elementos da heap com os índices ;///////
+      int sum = 0;
+      int count = 0;
+      if (isEmpty()) {
+         return null;
+      } else {
+         java.util.Iterator<Integer> itr = this.iterator();
+         while (itr.hasNext()) {
+            if (itr.next() > k1 && itr.next() <= k2) {
+               sum += itr.next();
+            }
+         }
+      }
+      return sum;
+   }
+
+   @Override
+   public Integer sumRangeBetween(Integer v1, Integer v2) {
+      //TODO Implement your code here
+      throw new UnsupportedOperationException("Not implemented yet!");
+   }
+
+   @Override
+   public Integer sumRangeAtLevel(int level) {
+      //TODO Implement your code here
+      throw new UnsupportedOperationException("Not implemented yet!");
+   }
+
+}
