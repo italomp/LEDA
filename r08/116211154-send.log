@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-04-29T22:02:44.939-0300</date>
+  <logger>ITALO MODESTO PEREIRA</logger>
+  <level>FINE</level>
+  <message>File 116211154-ITALO MODESTO PEREIRA.zip was received. It was sent by ITALO MODESTO PEREIRA from IP 192.168.1.5</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-04-30T20:03:47.804-0300</date>
+  <logger>ITALO MODESTO PEREIRA</logger>
+  <level>FINE</level>
+  <message>File 116211154-ITALO MODESTO PEREIRA.zip was received. It was sent by ITALO MODESTO PEREIRA from IP 192.168.1.13 at 30-04-2019 20*03*47</message>
+</record>
