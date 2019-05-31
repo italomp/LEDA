@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename local variable &apos;aux&apos; in &apos;adt.linkedList.extended.ListInversionImpl.reverseIterative()&apos; to &apos;previous&apos;&#x0A;- Original project: &apos;final&apos;&#x0A;- Original element: &apos;adt.linkedList.extended.ListInversionImpl.reverseIterative().aux&apos;&#x0A;- Renamed element: &apos;aux&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;aux&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src\/main\/java&lt;adt.linkedList.extended{ListInversionImpl.java[ListInversionImpl~reverseIterative@aux!359!392!367!369!QInteger;!0!false" name="previous" references="true" stamp="1545329147683" version="1.0"/>
-</session>

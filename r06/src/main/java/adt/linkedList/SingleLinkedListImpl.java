@@ -83,44 +83,6 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
 		this.head = head;
 	}
 	
-//	public static void main(String[] args) {
-//		SingleLinkedListImpl<Integer> l = new SingleLinkedListImpl<>();
-//		
-//		l.insert(1);
-//		l.insert(2);
-//		l.insert(3);
-//		l.insert(4);
-//		l.insert(5);
-//		l.insert(6);
-//		l.insert(7);
-//		l.insert(8);
-//		l.insert(9);
-//		l.insert(10);
-//		
-//		Object[] a1 = l.toArray();
-//		for(Object i : a1) {
-//			System.out.print(i + " ");
-//		}
-//		System.out.println();
-//		
-//		System.out.println("search: 1 ->" + l.search(1));
-//		System.out.println("search: 10 ->" + l.search(10));
-//		System.out.println("search: 5 ->" + l.search(5));
-//		System.out.println("size: 10 -> " + l.size());
-//		
-//		l.remove(1);
-//		l.remove(5);
-//		l.remove(10);
-//		
-//		System.out.println("search: 1 ->" + l.search(1));
-//		System.out.println("search: 10 ->" + l.search(10));
-//		System.out.println("search: 5 ->" + l.search(5));
-//		System.out.println("size: 10 -> " + l.size());
-//	
-//		Object[] a2 = l.toArray();
-//		for(Object i : a2) {
-//			System.out.print(i + " ");
-//		}
-//	}
+
 
 }
