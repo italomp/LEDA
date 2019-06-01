@@ -1,7 +1,5 @@
 package adt.bst;
 
-import java.util.ArrayList;
-
 import adt.bt.BTNode;
 import util.Util;
 
@@ -212,53 +210,53 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 	
 	@Override
 	public T[] preOrder() {
-		ArrayList<T> list = new ArrayList<>();
 		T[] result = (T[]) new Integer[size()];
-		preOrder(this.root, list);
-		Util.converterListaEmArray(list, result);
+		int i = 0;
+		preOrder(this.root, result, i);
 		return result;
 	}
 
-	public void preOrder(BSTNode<T> node, ArrayList<T> list) {
+	public int preOrder(BSTNode<T> node, T[] result, int i) {
 		if(!node.isEmpty()) {
-			list.add(node.getData());
-			preOrder((BSTNode<T>) node.getLeft(), list);
-			preOrder((BSTNode<T>) node.getRight(), list);
+			result[i++] = node.getData();
+			i = preOrder((BSTNode<T>) node.getLeft(), result, i);
+			i = preOrder((BSTNode<T>) node.getRight(), result, i);
 		}
+		return i;
 	}
 	
 	@Override
 	public T[] order() {
-		ArrayList<T> list = new ArrayList<>();
 		T[] result = (T[]) new Integer[size()];
-		order(this.root, list);
-		Util.converterListaEmArray(list, result);
+		int i = 0;
+		order(this.root, result, i);
 		return result;
 	}
 	
-	public void order(BSTNode<T> node, ArrayList list) {
+	public int order(BSTNode<T> node, T[] array, int i) {
 		if(!node.isEmpty()) {
-			order((BSTNode) node.getLeft(), list);
-			list.add(node.getData());
-			order((BSTNode) node.getRight(), list);
+			i = order((BSTNode) node.getLeft(), array, i);
+			array[i++] = node.getData();
+			i = order((BSTNode) node.getRight(), array, i);
 		}
+		return i;
 	}
 
 	@Override
 	public T[] postOrder() {
-		ArrayList<T> list = new ArrayList<>();
 		T[] result = (T[]) new Integer[size()];
-		postOrder(this.root, list);
-		Util.converterListaEmArray(list, result);
+		int i = 0;
+		postOrder(this.root, result, i);
 		return result;
 	}
 	
-	public void postOrder(BSTNode<T> node, ArrayList list) {
+	public int postOrder(BSTNode<T> node, T[] array, int i) {
 		if(!node.isEmpty()) {
-			postOrder((BSTNode) node.getLeft(), list);
-			postOrder((BSTNode) node.getRight(), list);
-			list.add(node.getData());
+			i = postOrder((BSTNode) node.getLeft(), array, i);
+			i = postOrder((BSTNode) node.getRight(), array, i);
+			array[i++] = node.getData();
 		}
+		return i;
 	}
 
 	/**
@@ -280,59 +278,91 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 		return result;
 	}
 	
-//	public static void main(String[] args) {
-//		BST<Integer> bst = new BSTImpl<>();
-//		Integer[] array;
-//		
-//		bst.insert(5);
-//		bst.insert(3);
-//		bst.insert(7);
-//		
-//		array = bst.preOrder();
-//		for(int i = 0; i < array.length; i++) {
-//			System.out.print(array[i] + " ");
-//		}
-//		System.out.println();
-//		
-//		array = bst.order();
-//		for(int i = 0; i < array.length; i++) {
-//			System.out.print(array[i] + " ");
-//		}
-//		System.out.println();
-//		
-//		array = bst.postOrder();
-//		for(int i = 0; i < array.length; i++) {
-//			System.out.print(array[i] + " ");
-//		}
-//		System.out.println();
-//		
-//		System.out.println(bst.getRoot().getData());
-//		System.out.println(bst.getRoot().getLeft().getData());
-//		System.out.println(bst.getRoot().getRight().getData());
-//		System.out.println("search 5: " + bst.search(5));
-//		System.out.println("search 3: " + bst.search(3));
-//		System.out.println("search 7: " + bst.search(7));
-//		System.out.println("minimum:" + bst.minimum());
-//		System.out.println("maximum: " + bst.maximum());
-//		System.out.println("sucessor do 5: " + bst.sucessor(5));
-//		System.out.println("predecessor do 5: " + bst.predecessor(5));
-//		System.out.println("sucessor do 3: " + bst.sucessor(3));
-//		System.out.println("predecessor do 3: " + bst.predecessor(3));
-//		System.out.println("altura1 bst = 1 ==> " + bst.height());
-//		bst.insert(2);
-//		System.out.println("altura1 bst = 2 ==> " + bst.height());
-//		bst.insert(1);
-//		System.out.println("altura1 bst = 3 ==> " + bst.height());
-//		bst.remove(5);
-//		System.out.println("search 5 => " + bst.search(5).getData());
-//		System.out.println("search 3 => " + bst.search(3).getData());
-//		System.out.println("search 7 => " + bst.search(7).getData());
-//		System.out.println("search 2 => " + bst.search(2).getData());
-//		System.out.println("search 1 => " + bst.search(1).getData());
-//		bst.remove(1);
-//		System.out.println("search 1 => " + bst.search(1).getData());
-//		bst.remove(3);
-//		System.out.println("search 3 => " + bst.search(3).getData());
-//	}
+	public static void main(String[] args) {
+		BST<Integer> bst = new BSTImpl<>();
+		Integer[] array;
+		
+		bst.insert(8);
+		bst.insert(4);
+		bst.insert(12);
+		bst.insert(2);
+		bst.insert(6);
+		bst.insert(10);
+		bst.insert(14);
+		bst.insert(1);
+		bst.insert(3);
+		bst.insert(5);
+		bst.insert(7);
+		bst.insert(9);
+		bst.insert(11);
+		bst.insert(13);
+		bst.insert(15);
+		
+		array = bst.preOrder();
+		for(int i = 0; i < array.length; i++) {
+			System.out.print(array[i] + " ");
+		}
+		System.out.println();
+
+		array = bst.order();
+		for(int i = 0; i < array.length; i++) {
+			System.out.print(array[i] + " ");
+		}
+		System.out.println();
+		
+		array = bst.postOrder();
+		for(int i = 0; i < array.length; i++) {
+			System.out.print(array[i] + " ");
+		}
+		System.out.println();
+		
+		bst.remove(1);
+		bst.remove(3);
+		bst.remove(5);
+		bst.remove(7);
+		bst.remove(9);
+		bst.remove(11);
+		bst.remove(13);
+		bst.remove(15);
+		bst.remove(2);
+		bst.remove(6);
+		bst.remove(10);
+		bst.remove(14);
+		bst.remove(4);
+		bst.remove(12);
+		bst.remove(8);
+		
+		bst.insert(5);
+		bst.insert(3);
+		bst.insert(7);		
+
+		System.out.println(bst.getRoot().getData());
+		System.out.println(bst.getRoot().getLeft().getData());
+		System.out.println(bst.getRoot().getRight().getData());
+		System.out.println("search 5: " + bst.search(5));
+		System.out.println("search 3: " + bst.search(3));
+		System.out.println("search 7: " + bst.search(7));
+		System.out.println("minimum:" + bst.minimum());
+		System.out.println("maximum: " + bst.maximum());
+		System.out.println("sucessor do 5: " + bst.sucessor(5));
+		System.out.println("predecessor do 5: " + bst.predecessor(5));
+		System.out.println("sucessor do 3: " + bst.sucessor(3));
+		System.out.println("predecessor do 3: " + bst.predecessor(3));
+		System.out.println("altura1 bst = 1 ==> " + bst.height());
+		bst.insert(2);
+		System.out.println("altura1 bst = 2 ==> " + bst.height());
+		bst.insert(1);
+		System.out.println("altura1 bst = 3 ==> " + bst.height());
+		bst.remove(5);
+		System.out.println("search 5 => " + bst.search(5).getData());
+		System.out.println("search 3 => " + bst.search(3).getData());
+		System.out.println("search 7 => " + bst.search(7).getData());
+		System.out.println("search 2 => " + bst.search(2).getData());
+		System.out.println("search 1 => " + bst.search(1).getData());
+		bst.remove(1);
+		System.out.println("search 1 => " + bst.search(1).getData());
+		bst.remove(3);
+		System.out.println("search 3 => " + bst.search(3).getData());
+	}
 
 }

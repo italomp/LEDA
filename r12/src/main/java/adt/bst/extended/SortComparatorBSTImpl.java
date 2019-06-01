@@ -1,6 +1,5 @@
 package adt.bst.extended;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 
 import adt.bst.BSTImpl;
@@ -39,18 +38,18 @@ public class SortComparatorBSTImpl<T extends Comparable<T>> extends BSTImpl<T> i
 	@Override
 	public T[] reverseOrder() {
 		T[] result = (T[]) new Integer[this.size()];
-		ArrayList<T> list = new ArrayList<>();
-		reverseOrder(list, this.root);
-		Util.converterListaEmArray(list, result);
+		int i = 0;
+		reverseOrder(this.root, result, i);
 		return result;
 	}
 	
-	public void reverseOrder(ArrayList<T> list, BSTNode<T> node) {
+	public int reverseOrder(BSTNode<T> node, T[] array, int i) {
 		if(!node.isEmpty()) {
-			reverseOrder(list, (BSTNode<T>) node.getRight());
-			list.add(node.getData());
-			reverseOrder(list, (BSTNode<T>) node.getLeft());
+			i = reverseOrder((BSTNode<T>) node.getRight(), array, i);
+			array[i++] = node.getData();
+			i = reverseOrder((BSTNode<T>) node.getLeft(), array, i);
 		}
+		return i;
 	}
 
 	public Comparator<T> getComparator() {
@@ -60,6 +59,5 @@ public class SortComparatorBSTImpl<T extends Comparable<T>> extends BSTImpl<T> i
 	public void setComparator(Comparator<T> comparator) {
 		this.comparator = comparator;
 	}
-	
 	
 }
