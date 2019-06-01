@@ -1,7 +1,5 @@
 package util;
 
-import java.util.ArrayList;
-
 /**
  * Class containing useful methods for arrays manipulation.
  */
@@ -43,9 +41,4 @@ public class Util {
 		return result;
 	}
 	
-	public static void converterListaEmArray(ArrayList list, Object[] array) {
-		for (int i = 0; i < array.length; i++) {
-			array[i] = list.get(i);
-		}
-	}
 }
