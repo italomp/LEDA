@@ -14,4 +14,6 @@
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="adt.bst.BSTNode"/>
     <fullyQualifiedTypeName name="util.Util"/>
+    <fullyQualifiedTypeName name="adt.bt.BTNode"/>
+    <fullyQualifiedTypeName name="adt.bt.Util"/>
 </qualifiedTypeNameHistroy>
