@@ -1,6 +1,7 @@
 package sorting.divideAndConquer.threeWayQuicksort;
 
 import sorting.AbstractSorting;
+import sorting.divideAndConquer.QuickSort;
 import util.Util;
 
 public class ThreeWayQuickSort<T extends Comparable<T>> extends
@@ -26,87 +27,89 @@ public class ThreeWayQuickSort<T extends Comparable<T>> extends
 	 **/
 	@Override
 	public void sort(T[] array, int leftIndex, int rightIndex) {
-		if(array.equals(null)) {
-			return;
-		}
-		if(leftIndex < 0) {
-			leftIndex = 0;
-		}
-		if(rightIndex > array.length - 1) {
-			rightIndex = array.length - 1;
-		}
-		if(leftIndex > rightIndex) {
-			return;
-		}
 		if(leftIndex < rightIndex) {
-			int pivotDireita = partition(array, leftIndex, rightIndex);
-			int pivotEsquerda = descobrePivotEsquerda(array, leftIndex,
-					pivotDireita);
-			sort(array, leftIndex, pivotEsquerda - 1);
-			sort(array, pivotDireita + 1, rightIndex);
+			int[] pivots = partition(array, leftIndex, rightIndex);
+			sort(array, leftIndex, pivots[0] - 1);
+			sort(array, pivots[1] + 1, rightIndex);
 		}
 	}
 	
-	/**
-	 * 	metodo auxiliar que descobre o elemento igual ao pivot mais a esquerda
-	 *	do centro do array.
-	 *	Os elementos iguais ao pivot precisam estar adjacenetes. 
-	 *	E quando este metodo eh chamado, os elementos iguais ao pivot jah estao
-	 *	adjacentes.
-	 *
-	 * @param array
-	 * @param leftIndex
-	 * @param pivotDireita
-	 * @return primeiro elemento igual ao pivot da esquerda para direita (pivotEsquerda). 
-	 */
-	public int descobrePivotEsquerda(T[] array, int leftIndex, 
-			 int pivotDireita) {
-		int retorno = leftIndex;
-		for(int i = leftIndex; i <= pivotDireita; i++) {
-			if(array[i].compareTo(array[pivotDireita]) == 0) {
-				retorno = i;
-				return retorno;
+	public int[] partition(T[] array, int leftIndex, int rightIndex) {
+		int curr = leftIndex;
+		int pivotPositionLeft = leftIndex;
+		int pivotPositionRight = leftIndex;
+		int pivot = rightIndex;
+		
+		while(curr < pivot) {
+			if(array[curr].compareTo(array[pivot]) <= 0) {
+				Util.swap(array, curr, pivotPositionRight);
+				pivotPositionRight++;
 			}
+			curr++;
 		}
-		return retorno;
+		Util.swap(array, pivot, pivotPositionRight);
+		curr = pivotPositionRight;
+		pivotPositionLeft = curr;
+		
+		while(curr >= leftIndex) {
+			if(array[curr].compareTo(array[pivotPositionRight]) == 0) {
+				Util.swap(array, curr, pivotPositionLeft);
+				pivotPositionLeft--;
+			}
+			curr--;
+		}
+		pivotPositionLeft++;
+		int[] result = {pivotPositionLeft, pivotPositionRight};
+		return result;
 	}
 	
-	/**
-	 * Inicialmente um partition tradicional, onde todos os elementos
-	 * menores ou iguais ao pivot ficam a esquerda do pivot. E posteriormente
-	 * todos os elementos iguais ao pivot sao levados para posicoes adjacentes
-	 * a do pivot.
-	 * 
-	 * @param array
-	 * @param leftIndex
-	 * @param rightIndex
-	 * @return
-	 */
-	public Integer partition(T[] array, int leftIndex, int rightIndex) {
-		T pivot = array[rightIndex];
-		int posicaoPivot = leftIndex;
-		int i = leftIndex;
+	public static void main(String[] args) {
+		Integer[] a1 = {10,10,10,1,1,1,2,5,5,5};
+		Integer[] a2 = {5,5,5,1,1,1,2,10,10,10};
+		Integer[] a3 = {5,5,5,10,10,10,3,3,3,1};
 		
-		while(i < rightIndex) {
-			if(array[i].compareTo(pivot) <= 0) {
-				Util.swap(array, posicaoPivot, i);
-				posicaoPivot++;
-			}
-			i++;
-		}
-		Util.swap(array, posicaoPivot, rightIndex);
+		ThreeWayQuickSort threeWay = new ThreeWayQuickSort();
 		
-		int iAux = leftIndex;
-		int posicaoPivotEsquerda = posicaoPivot - 1;
-		while(iAux < posicaoPivotEsquerda) {
-			if(array[iAux].compareTo(array[posicaoPivot]) == 0) {
-				Util.swap(array, iAux, posicaoPivotEsquerda);
-				posicaoPivotEsquerda--;
+		//FULL
+		threeWay.sort(a1, 0, a1.length -1);
+		threeWay.sort(a2, 0, a2.length -1);
+		threeWay.sort(a3, 0, a3.length -1);
+
+		
+		//IN RANGE
+//		threeWay.sort(a1, 3, 7);
+//		threeWay.sort(a2, 3, 7);
+//		threeWay.sort(a3, 3, 7);
+
+		System.out.println("A1 POS SORT");
+		for(int i = 0; i < a1.length; i++) {
+			if(i == a1.length - 1) {
+				System.out.println(a1[i]);
 			}
-			iAux++;
+			else {
+				System.out.print(a1[i] + ", ");
+			}
 		}
 		
-		return posicaoPivot;
+		System.out.println("A2 POS SORT");
+		for(int i = 0; i < a2.length; i++) {
+			if(i == a2.length - 1) {
+				System.out.println(a2[i]);
+			}
+			else {
+				System.out.print(a2[i] + ", ");
+			}
+		}
+		
+		System.out.println("A3 POS SORT");
+		for(int i = 0; i < a3.length; i++) {
+			if(i == a3.length - 1) {
+				System.out.println(a3[i]);
+			}
+			else {
+				System.out.print(a3[i] + ", ");
+			}
+		}
 	}
 
 }
