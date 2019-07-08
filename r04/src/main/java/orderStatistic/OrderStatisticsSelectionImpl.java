@@ -20,68 +20,47 @@ public class OrderStatisticsSelectionImpl<T extends Comparable<T>> implements Or
 	 * - Sugestao: o uso de recursao ajudara sua codificacao..
 	 */
 	@Override
-	public T getOrderStatistics(T[] array, int k) {	
-		if(array.equals(null) || array.length == 0) {
-			return null;
+	public T getOrderStatistics(T[] array, int k) {
+		T menor = encontrarMenor(array);
+		int order = 1;
+		return getOrderStatistics(array, menor, order, k);
+	}
+	
+	public T encontrarMenor(T[] array) {
+		T menor = array[0];
+		for(int i = 0; i < array.length; i++) {
+			if(array[i].compareTo(menor) < 0) {
+				menor = array[i];
+			}
 		}
-		if(k > array.length) {
-			return null;
-		}
-		T menor = selectionSmaller(array);
-		if(k == 1) {
+		return menor;
+	}
+	
+	public T getOrderStatistics(T[] array, T menor, int order, int k) {
+		if(order == k) {
 			return menor;
 		}
 		else {
-			int order = 2;
-			return getOrderStatisticsAux(array, k, order, menor);
-		}
-	}
-	
-	public T getOrderStatisticsAux(T[] array, int k, int order, T menor) {
-		T elementK = selectionSmallerK(array, menor);
-		if(order == k) {
-			return elementK;
-		}
-		else {
-			return getOrderStatisticsAux(array, k, order + 1, elementK);
-		}
-	}
-	
-	/**
-	 * unica responsabilidade: achar o menor elemento, maior que o atual menor.
-	 * 
-	 */
-	public T selectionSmallerK(T[] array, T menor) {
-		T smaller = selectionBigger(array);
-		for(int i = 0; i < array.length; i++) {
-			if(array[i].compareTo(menor) > 0) {
-				if(array[i].compareTo(smaller) < 0) {
-					smaller = array[i];
+			//sou obrigado a instaciar
+			T novoMenor = array[0];
+			
+			//pegando um menor aleatoreo
+			for(int i = 0; i < array.length; i++) {
+				if(array[i].compareTo(menor) > 0 ) {
+					novoMenor = array[i];
+					break;
 				}
 			}
-		}
-		return smaller;
-	}
-	
-	public T selectionSmaller(T[] array) {
-		T smaller = array[0];
-		for(int i = 0; i < array.length; i++) {
-			if(array[i].compareTo(smaller) < 0) {
-				smaller = array[i];
-			}
 			
-		}
-		return smaller;	
-	}
-	
-	public T selectionBigger(T[] array) {
-		T bigger = array[0];
-		for(int i = 0; i < array.length; i++) {
-			if(array[i].compareTo(bigger) > 0) {
-				bigger = array[i];
+			//selecionando o menor
+			for(int i = 0; i < array.length; i++) {
+				if(array[i].compareTo(menor) > 0 &&
+						array[i].compareTo(novoMenor) < 0) {
+					novoMenor = array[i];
+				}
 			}
+			return getOrderStatistics(array, novoMenor, order + 1, k);
 		}
-		return bigger;	
 	}
 	
 	public static void main(String[] args) {
